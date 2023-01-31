@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace KaanTanis\UrlTracker;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VendorName\Skeleton\Commands\SkeletonCommand;
+use KaanTanis\UrlTracker\Commands\UrlTrackerCommand;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+class UrlTrackerServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -16,10 +16,14 @@ class SkeletonServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('skeleton')
+            ->name('url-tracker')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_skeleton_table')
-            ->hasCommand(SkeletonCommand::class);
+            ->hasRoute('web')
+            ->hasMigrations([
+                'create_url_tracker_table',
+                'create_url_tracker_logs_table',
+            ])
+            ->hasCommand(UrlTrackerCommand::class);
     }
 }
