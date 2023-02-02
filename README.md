@@ -43,8 +43,8 @@ Http::post(route('url-tracker.generate-url'), [
 // This return a string url path like this with a unique code
 // example.com/url-tracker/QSGHG2
 
-// If any visitor visit this url, user see the url and click it,
-// this package will track the url and store the data in database.
+// If any visitor visit this url, user redirect to tracked_url
+// and visitor data will be stored in database
 ```
 
 ## Which data will be stored in database?

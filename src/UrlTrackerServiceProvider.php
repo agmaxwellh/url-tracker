@@ -19,7 +19,7 @@ class UrlTrackerServiceProvider extends PackageServiceProvider
             ->name('url-tracker')
             ->hasConfigFile()
             ->hasViews()
-            ->hasRoute('web')
+            ->hasTranslations()
             ->hasMigrations([
                 'create_url_tracker_table',
                 'create_url_tracker_logs_table',

@@ -2,10 +2,13 @@
 
 namespace KaanTanis\UrlTracker\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class UrlTrackerTable extends Model
 {
+    use HasFactory;
+
     protected $table = 'url_tracker_table';
     protected $guarded = [];
 
