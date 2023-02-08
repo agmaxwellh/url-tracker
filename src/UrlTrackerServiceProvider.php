@@ -2,9 +2,13 @@
 
 namespace KaanTanis\UrlTracker;
 
+use Illuminate\Contracts\Container\BindingResolutionException;
+use Illuminate\Contracts\Http\Kernel;
+use Illuminate\Routing\Router;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use KaanTanis\UrlTracker\Commands\UrlTrackerCommand;
+use Spatie\Referer\CaptureReferer;
 
 class UrlTrackerServiceProvider extends PackageServiceProvider
 {
@@ -26,5 +30,15 @@ class UrlTrackerServiceProvider extends PackageServiceProvider
                 'create_url_tracker_logs_table',
             ])
             ->hasCommand(UrlTrackerCommand::class);
+    }
+
+    /**
+     * @throws BindingResolutionException
+     */
+    public function bootingPackage()
+    {
+        $router = $this->app->make(Router::class);
+
+        $router->pushMiddlewareToGroup('web', CaptureReferer::class);
     }
 }

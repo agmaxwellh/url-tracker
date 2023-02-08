@@ -18,8 +18,9 @@
     "require": {
         "php": "^8.1",
         "illuminate/contracts": "^9.0",
-        "kaantanis/coderator": "dev-main",
-        "spatie/laravel-package-tools": "^1.14.0"
+        "kaantanis/coderator": "*",
+        "spatie/laravel-package-tools": "^1.14.0",
+        "spatie/laravel-referer": "^1.8"
     },
     "require-dev": {
         "laravel/pint": "^1.0",
